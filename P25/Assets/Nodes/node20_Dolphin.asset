@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
+  m_Name: node20_Dolphin
+  m_EditorClassIdentifier: 
+  nodeName: Dolphin
+  id: 20
+  linkedNodes:
+  - {fileID: 11400000, guid: f2c888b711506534793cceb96fbbe5df, type: 2}
+  - {fileID: 11400000, guid: bd2984fd51739bb458dce1a53d0bc908, type: 2}
+  - {fileID: 11400000, guid: d003c44783bae184791d1b4d001b40e1, type: 2}
+  functional: 1
+  location: {x: 2520.208, y: 554.5, z: 19855.36}

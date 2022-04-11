@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
+  m_Name: node5_Gunrange
+  m_EditorClassIdentifier: 
+  nodeName: ' Gun Range'
+  id: 5
+  linkedNodes:
+  - {fileID: 11400000, guid: 1f71b4b700187cc41bee68920057ed24, type: 2}
+  - {fileID: 11400000, guid: b3c1e29c0c040764280a391abcdabbfa, type: 2}
+  functional: 1
+  location: {x: 22823.58, y: 554.5, z: 29821.508}

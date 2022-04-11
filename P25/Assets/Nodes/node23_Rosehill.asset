@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
+  m_Name: node23_Rosehill
+  m_EditorClassIdentifier: 
+  nodeName: Rosehill
+  id: 23
+  linkedNodes:
+  - {fileID: 11400000, guid: 4a77d7367d087ee4ca94dbb71210816e, type: 2}
+  - {fileID: 11400000, guid: 40a2c698d2b78b8439a32f5efe0996a9, type: 2}
+  - {fileID: 11400000, guid: 16cb55c4ed94dc849a0745c211f9c37e, type: 2}
+  functional: 1
+  location: {x: -17405.22, y: 554.5, z: 10535.164}
