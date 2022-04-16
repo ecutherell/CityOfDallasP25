@@ -13,4 +13,14 @@ public class NodeScriptableObject : ScriptableObject
     public NodeScriptableObject[] linkedNodes;          //ID's of nodes this tower links to
     public bool functional;                             //Determines if the tower is functional or not
     public Vector3 location;                            //location of the node in 3d space
+
+    //getters
+    public bool getFunctional(){
+        return functional;
+    }
+
+    public Vector3 getLocation(){
+        return location;
+    }
+
 }
