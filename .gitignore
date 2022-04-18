@@ -13,6 +13,13 @@ sysinfo.txt
 # Unity3D generated meta files
 *.pidb.meta
 
+# Any type of model files and meta files
+*.fbx
+*.obj
+*.meta
+*.fbx.meta
+
+
 ###
 # VS/MD solution and project files
 ###
