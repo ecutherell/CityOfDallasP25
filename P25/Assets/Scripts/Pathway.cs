@@ -17,6 +17,7 @@ public class Pathway : MonoBehaviour
     //Asthetics
     public Color color1 = Color.cyan;
     public Color color2 = Color.white;
+    private float animationDuration = 5f;
 
 
 
@@ -41,7 +42,7 @@ public class Pathway : MonoBehaviour
     void buildEdge(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
     {
         //If both towers are functional then create the edge
-        if(isFunctional(currentNode, nextNode)){
+        /*        if(isFunctional(currentNode, nextNode)){
             GameObject g = new GameObject(itr.ToString());
             g.AddComponent<LineRenderer>();
             LineRenderer edge = g.GetComponent<LineRenderer>();
@@ -49,6 +50,23 @@ public class Pathway : MonoBehaviour
             edge.SetPosition(1, nextNode.location);
             //edge.SetWidth();
             //edge.startColor(color1);
+            edge.startWidth = 10;
+            //edge.endColor(color2);
+            Debug.Log("Built Edge");                                        //Debug
+            getNext();
+        }*/
+        if(isFunctional(currentNode, nextNode)){
+            
+            GameObject g = new GameObject(itr.ToString());
+            g.AddComponent<LineRenderer>();
+            LineRenderer edge = g.GetComponent<LineRenderer>();
+            edge.SetPosition(0, currentNode.location);
+            edge.SetPosition(1, nextNode.location);
+            //edge.SetWidth();
+            //edge.startColor(color1);
+            
+            edge.startWidth = 10;
+            StartCoroutine(AnimateLine(edge));
             //edge.endColor(color2);
             Debug.Log("Built Edge");                                        //Debug
             getNext();
@@ -57,6 +75,20 @@ public class Pathway : MonoBehaviour
             //runBackup route
         }
     }
+
+    private IEnumerator AnimateLine(LineRenderer edge){
+        float startTime = Time.time;
+        Vector3 startPos = edge.GetPosition(0);
+        Vector3 endPos = edge.GetPosition(1);
+        Vector3 pos = startPos;
+            while(pos != endPos)
+            {
+                float t = (Time.time - startTime) / animationDuration;
+                pos = Vector3.Lerp(startPos, endPos, t);
+                edge.SetPosition(1,pos);
+                yield return null;
+            }      
+    }  
 
 
     //Checks if both nodes in a edge are functional. used to test if a tower is operational or not
@@ -93,6 +125,7 @@ public class Pathway : MonoBehaviour
         if(!finished) {
             if(Input.GetMouseButton(0)) {
                 buildEdge(currentNode, nextNode);
+               // StartCoroutine(buildEdge(currentNode, nextNode));
             }  
         }
 
