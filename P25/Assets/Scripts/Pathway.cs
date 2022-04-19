@@ -12,8 +12,9 @@ public class Pathway : MonoBehaviour
     public NodeScriptableObject currentNode;
     public NodeScriptableObject nextNode;
     public NodeScriptableObject endNode;
-    private int itr;
+    public int itr;
     private bool finished;
+    private bool autoAnimate;
     //Asthetics
     public Color color1 = Color.cyan;
     public Color color2 = Color.white;
@@ -39,7 +40,7 @@ public class Pathway : MonoBehaviour
 
 
     //Edge building algorithm. takes a array of node and iterativly builds edges based on the path.
-    void buildEdge(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
+    LineRenderer buildEdge(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
     {
         //If both towers are functional then create the edge
         /*        if(isFunctional(currentNode, nextNode)){
@@ -62,32 +63,53 @@ public class Pathway : MonoBehaviour
             LineRenderer edge = g.GetComponent<LineRenderer>();
             edge.SetPosition(0, currentNode.location);
             edge.SetPosition(1, nextNode.location);
-            //edge.SetWidth();
-            //edge.startColor(color1);
-            
-            edge.startWidth = 10;
-            StartCoroutine(AnimateLine(edge));
-            //edge.endColor(color2);
-            Debug.Log("Built Edge");                                        //Debug
-            getNext();
+            edge.material = new Material(Shader.Find("Sprites/Default"));
+            edge.startColor = color1;
+            edge.endColor = color2;
+
+            edge.startWidth = 20;
+            //StartCoroutine(AnimateLine(edge));
+            //Debug.Log("Built Edge");                                        //Debug
+            //getNext();
+
+            return edge;
         }
         else{
             //runBackup route
+            return null;
         }
     }
 
-    private IEnumerator AnimateLine(LineRenderer edge){
-        float startTime = Time.time;
-        Vector3 startPos = edge.GetPosition(0);
-        Vector3 endPos = edge.GetPosition(1);
-        Vector3 pos = startPos;
-            while(pos != endPos)
-            {
-                float t = (Time.time - startTime) / animationDuration;
-                pos = Vector3.Lerp(startPos, endPos, t);
-                edge.SetPosition(1,pos);
-                yield return null;
-            }      
+
+    //Coroutine for animating the line. continously sets the edge length of the next node for a specified duration 
+    private IEnumerator AnimateLine(){
+
+        while(!finished){
+
+            if(Input.GetMouseButton(0) | autoAnimate) {
+
+                //build edge 
+                LineRenderer edge = buildEdge(currentNode, nextNode);
+
+                //get positions needed for the animation
+                float startTime = Time.time;
+                Vector3 startPos = edge.GetPosition(0);
+                Vector3 endPos = edge.GetPosition(1);
+                Vector3 pos = startPos;
+
+                while(pos != endPos)
+                {
+                    float t = (Time.time - startTime) / animationDuration;
+                    pos = Vector3.Lerp(startPos, endPos, t);
+                    edge.SetPosition(1,pos);
+                    yield return null;
+                } 
+            
+                getNext();
+            }
+
+             yield return new WaitForEndOfFrame();
+        }
     }  
 
 
@@ -115,25 +137,17 @@ public class Pathway : MonoBehaviour
         itr = 1;
         currentNode = startNode;
         nextNode = path.pathway[itr];
+        finished = false;
+        autoAnimate = false;
+
+        //Run the Coroutine
+        StartCoroutine(AnimateLine());
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
 
-        //temporary for testing the edge builder replace once UI gets implemented
-        if(!finished) {
-            if(Input.GetMouseButton(0)) {
-                buildEdge(currentNode, nextNode);
-               // StartCoroutine(buildEdge(currentNode, nextNode));
-            }  
-        }
-
-        if(finished){
-            Debug.Log("reached the truncking location");
-        }
-
     }
-
-
+    */
 }
