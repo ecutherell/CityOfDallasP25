@@ -141,6 +141,11 @@ public class Pathway : MonoBehaviour
         autoAnimate = false;
 
         //Run the Coroutine
+        //StartCoroutine(AnimateLine());
+    }
+
+    public void startAnimation()
+    {
         StartCoroutine(AnimateLine());
     }
 
