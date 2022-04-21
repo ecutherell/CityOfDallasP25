@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
-  m_Name: node17_OakLane
+  m_Name: node25_Southside
   m_EditorClassIdentifier: 
-  nodeName: Oak Lane
-  id: 17
+  nodeName: Southside
+  id: 25
   linkedNodes:
-  - {fileID: 11400000, guid: f2c888b711506534793cceb96fbbe5df, type: 2}
   - {fileID: 11400000, guid: bb1facda573f3ca4db105c2a09ec045b, type: 2}
-  - {fileID: 11400000, guid: 378304f7be576464f92a9fe93457a985, type: 2}
-  - {fileID: 11400000, guid: 6632adfe8c5d95041a82ddd08a425c7c, type: 2}
   - {fileID: 11400000, guid: bd2984fd51739bb458dce1a53d0bc908, type: 2}
+  - {fileID: 11400000, guid: af5d7a3ed8bd33b4e8ad5e9e2a0b257f, type: 2}
+  - {fileID: 11400000, guid: 3f7bbd96eedf2a54990cd933cecc5f9f, type: 2}
   functional: 1
-  location: {x: -1640.7355, y: 554.5, z: 19227.324}
+  location: {x: -11759.659, y: 555, z: 37578.92}
