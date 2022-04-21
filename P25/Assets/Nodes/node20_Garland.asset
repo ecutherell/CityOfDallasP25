@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
-  m_Name: node27_Southside
+  m_Name: node20_Garland
   m_EditorClassIdentifier: 
-  nodeName: Southside
-  id: 27
+  nodeName: Garland/Costa Mesa
+  id: 20
   linkedNodes:
-  - {fileID: 11400000, guid: bb1facda573f3ca4db105c2a09ec045b, type: 2}
-  - {fileID: 11400000, guid: bd2984fd51739bb458dce1a53d0bc908, type: 2}
-  - {fileID: 11400000, guid: af5d7a3ed8bd33b4e8ad5e9e2a0b257f, type: 2}
-  - {fileID: 11400000, guid: 3f7bbd96eedf2a54990cd933cecc5f9f, type: 2}
+  - {fileID: 11400000, guid: 0f1492d292be5bc4ab636e7aef1dc678, type: 2}
+  - {fileID: 11400000, guid: f973528f64c1f1c41ae1db8e35ad07d8, type: 2}
   functional: 1
-  location: {x: 30.6091, y: 554.5, z: 25488.428}
+  location: {x: -8609.067, y: 571.5, z: 10121.174}

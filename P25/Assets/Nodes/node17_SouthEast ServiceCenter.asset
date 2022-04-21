@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
-  m_Name: node28_CedarHill
+  m_Name: node17_SouthEast ServiceCenter
   m_EditorClassIdentifier: 
-  nodeName: Cedar Hill
-  id: 28
+  nodeName: SE Service Center
+  id: 17
   linkedNodes:
-  - {fileID: 11400000, guid: b3c1e29c0c040764280a391abcdabbfa, type: 2}
+  - {fileID: 11400000, guid: 3335f9ecb6d731647aacb8f5ff76be28, type: 2}
   functional: 1
-  location: {x: 24060.758, y: 554.5, z: 45914.863}
+  location: {x: 30.6091, y: 564.5, z: 25488.428}
