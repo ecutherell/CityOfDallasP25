@@ -22,6 +22,7 @@ public class CamChange : MonoBehaviour
         Debug.Log("Showing top down");
         mainCamera.enabled = false;
         topDownCamera.enabled = true;
+        trackerCamera.enabled = false;
     }
 
     public void switchToMain()
@@ -29,6 +30,7 @@ public class CamChange : MonoBehaviour
         Debug.Log("Switching to main");
         mainCamera.enabled = true;
         topDownCamera.enabled = false;
+        trackerCamera.enabled = false;
     }
     public void switchToTrackerCamera()
     {

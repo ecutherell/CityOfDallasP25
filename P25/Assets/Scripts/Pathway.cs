@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 public class Pathway : MonoBehaviour
 {
 
@@ -95,7 +96,9 @@ GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             sphere.transform.localScale = new Vector3(10f,10f,10f);
                 //get positions needed for the animation
                 float startTime = Time.time;
+                //Debug.Log(edge.GetPosition(0));
                 Vector3 startPos = edge.GetPosition(0);
+                
                 Vector3 endPos = edge.GetPosition(1);
                 Vector3 pos = startPos;
 
@@ -117,9 +120,10 @@ GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 //     sphere.transform.position = pos;
                 //     yield return null;
                 // }
-            
-                getNext();
+            getNext();
+                
             }
+            
             // else if()
             // {
             //     LineRenderer edge = buildEdge(currentNode, nextNode);
@@ -252,6 +256,13 @@ GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     public void EndAnimation(){
         StopCoroutine(AnimateLine());
          //SceneManager.LoadScene("SampleScene");
+        
+    }
+
+    public void setBackupPath()
+    {
+        //path =  AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof("PathwayScriptableObject"));
+        Debug.Log("loading backup path");
         
     }
 

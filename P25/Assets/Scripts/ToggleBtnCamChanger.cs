@@ -7,6 +7,7 @@ public class ToggleBtnCamChanger : MonoBehaviour
     // Start is called before the first frame update
     public Toggle myToggle;
     private bool camEnabled = false;
+    public bool animationStarted = false;
     public GameObject holder;
     void Start()
     {
@@ -24,6 +25,11 @@ public class ToggleBtnCamChanger : MonoBehaviour
             cam.showTopDown();
             camEnabled = true;
         }
+
+        // else if(animationStarted = true)
+        // {
+
+        // }
             
          else
          {
