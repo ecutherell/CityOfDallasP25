@@ -18,14 +18,14 @@ public class AnimationStartScript : MonoBehaviour
     void ClickEvent()
     {
         // Destroy the gameObject after clicking on it
-        Pathway pathobj = holder.GetComponent<Pathway>();
+       // Pathway pathobj = holder.GetComponent<Pathway>();
         //pathobj.Start();
         GameObject btn = GameObject.Find("AnimStartBtn");
         
         btn.SetActive(false);
         Step_AutoanimateToggle.SetActive(true);
-
-        pathobj.startAnimation();
+        //pathobj.TurnAutoOn();
+        //pathobj.startAnimation();
 
     }
 

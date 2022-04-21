@@ -11,19 +11,30 @@ public class StepAutoButton : MonoBehaviour
     void Start()
     {
           pathobj = holder.GetComponent<Pathway>();
+        parentToggle = GetComponent<Toggle>();
+        parentToggle.onValueChanged.AddListener(delegate {
+            ToggleValueChanged(parentToggle);
+        });
+        if(!parentToggle.isOn)
+        {
+            //pathobj.EndAnimation();
+            //pathobj.TurnAutoOff();
+            
+            pathobj.startAnimation();
+        }
+
     }
 
     // Update is called once per frame
-    void Update()
+    void ToggleValueChanged(Toggle parentToggle)
     {
         
         if(parentToggle.isOn)
         {
-            pathobj.TurnAutoOff();
-        }
-        else
-        {
             pathobj.TurnAutoOn();
+            //pathobj.EndAnimation();
+            //pathobj.startAnimation();
         }
+
     }
 }

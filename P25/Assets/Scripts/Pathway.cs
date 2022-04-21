@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Pathway : MonoBehaviour
 {
 
@@ -86,7 +86,7 @@ public class Pathway : MonoBehaviour
 
         while(!finished){
 
-            if(Input.GetMouseButton(0) | autoAnimate) {
+            if(autoAnimate) {
 
                 //build edge 
                 LineRenderer edge = buildEdge(currentNode, nextNode);
@@ -120,6 +120,42 @@ public class Pathway : MonoBehaviour
             
                 getNext();
             }
+            else if(Input.GetMouseButton(0))
+            {
+                LineRenderer edge = buildEdge(currentNode, nextNode);
+                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                sphere.transform.localScale = new Vector3(10f,10f,10f);
+                sphere.transform.position = edge.GetPosition(0);
+
+                //get positions needed for the animation
+                float startTime = Time.time;
+                Vector3 startPos = edge.GetPosition(0);
+                Vector3 endPos = edge.GetPosition(1);
+                Vector3 pos = startPos;
+
+                while(pos != endPos)
+                {
+                    float t = (Time.time - startTime) / animationDuration;
+                    pos = Vector3.Lerp(startPos, endPos, t);
+                    edge.SetPosition(1,pos);
+                    sphere.transform.position = pos;
+                    yield return null;
+                } 
+                // pos = startPos;
+                // sphere.transform.localScale = new Vector3(10f,10f,10f);
+                // sphere.transform.position = edge.GetPosition(0);
+                // while(pos != endPos)
+                // {
+                //     float t = (Time.time - startTime) / animationDuration;
+                //     pos = Vector3.Lerp(startPos, endPos, t);
+                //     sphere.transform.position = pos;
+                //     yield return null;
+                // }
+            
+                getNext();
+            }
+
+
 
              yield return new WaitForEndOfFrame();
         }
@@ -205,6 +241,18 @@ public class Pathway : MonoBehaviour
     public void TurnAutoOff()
     {
         autoAnimate = false;
+    }
+
+    public void AdjustAnimationDuration(float num)
+    {
+        //Debug.Log(num);
+        animationDuration = num;
+    }
+
+    public void EndAnimation(){
+        StopCoroutine(AnimateLine());
+         //SceneManager.LoadScene("SampleScene");
+        
     }
 
     // Update is called once per frame
