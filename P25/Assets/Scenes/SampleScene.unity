@@ -9920,10 +9920,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 879090679}
   m_HandleRect: {fileID: 417825414}
   m_Direction: 0
-  m_MinValue: 5
+  m_MinValue: 1
   m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -44137,7 +44137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 497883992}
-  holder: {fileID: 2045334445}
+  camHolder: {fileID: 1656872406}
   Step_AutoanimateToggle: {fileID: 461130824}
 --- !u!114 &497883992
 MonoBehaviour:
@@ -83669,6 +83669,7 @@ GameObject:
   - component: {fileID: 1423573987}
   - component: {fileID: 1423573986}
   - component: {fileID: 1423573985}
+  - component: {fileID: 1423573988}
   m_Layer: 0
   m_Name: EdgeFollow
   m_TagString: Untagged
@@ -83708,7 +83709,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 1000000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -83718,7 +83719,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -83741,6 +83742,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423573988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423573984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bcd10257b0e5b4aaada7f85ab25c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &1459819342
 GameObject:
   m_ObjectHideFlags: 0
@@ -108000,6 +108014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   topDownCamera: {fileID: 0}
+  trackerCamera: {fileID: 0}
 --- !u!1 &1683823919
 GameObject:
   m_ObjectHideFlags: 0

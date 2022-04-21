@@ -5,8 +5,9 @@ using UnityEngine;
 public class cameraFollows : MonoBehaviour
 {
     public GameObject target;
-
+    private Vector3 cameraPosition;
     private Vector3 offset;
+    private GameObject parentCam;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,9 @@ public class cameraFollows : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = target.transform.position + offset;
+        target = GameObject.Find("Sphere");
+        cameraPosition = target.transform.position + offset;
+        transform.position = cameraPosition;
+
     }
 }

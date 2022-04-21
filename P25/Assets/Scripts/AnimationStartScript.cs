@@ -6,7 +6,7 @@ public class AnimationStartScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public Button yourButton;
-    public GameObject holder;
+    public GameObject camHolder;
     public GameObject Step_AutoanimateToggle;
     void Start(){
         Button btn = yourButton.GetComponent<Button>();
@@ -21,7 +21,8 @@ public class AnimationStartScript : MonoBehaviour
        // Pathway pathobj = holder.GetComponent<Pathway>();
         //pathobj.Start();
         GameObject btn = GameObject.Find("AnimStartBtn");
-        
+        CamChange cam = camHolder.GetComponent<CamChange>();
+        cam.switchToTrackerCamera();
         btn.SetActive(false);
         Step_AutoanimateToggle.SetActive(true);
         //pathobj.TurnAutoOn();
