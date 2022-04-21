@@ -90,6 +90,8 @@ public class Pathway : MonoBehaviour
 
                 //build edge 
                 LineRenderer edge = buildEdge(currentNode, nextNode);
+               // GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
 
                 //get positions needed for the animation
                 float startTime = Time.time;
@@ -102,8 +104,19 @@ public class Pathway : MonoBehaviour
                     float t = (Time.time - startTime) / animationDuration;
                     pos = Vector3.Lerp(startPos, endPos, t);
                     edge.SetPosition(1,pos);
+                    //sphere.transform.position = pos;
                     yield return null;
                 } 
+                // pos = startPos;
+                // sphere.transform.localScale = new Vector3(10f,10f,10f);
+                // sphere.transform.position = edge.GetPosition(0);
+                // while(pos != endPos)
+                // {
+                //     float t = (Time.time - startTime) / animationDuration;
+                //     pos = Vector3.Lerp(startPos, endPos, t);
+                //     sphere.transform.position = pos;
+                //     yield return null;
+                // }
             
                 getNext();
             }
@@ -111,6 +124,39 @@ public class Pathway : MonoBehaviour
              yield return new WaitForEndOfFrame();
         }
     }  
+
+    private IEnumerator AnimateLightNode()
+    {
+         while(!finished){
+
+            if(Input.GetMouseButton(0) | autoAnimate) {
+
+                //build edge 
+                LineRenderer edge = buildEdge(currentNode, nextNode);
+                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                sphere.transform.localScale = new Vector3(10f,10f,10f);
+                sphere.transform.position = edge.GetPosition(0);
+
+                //get positions needed for the animation
+                float startTime = Time.time;
+                Vector3 startPos = edge.GetPosition(0);
+                Vector3 endPos = edge.GetPosition(1);
+                Vector3 pos = startPos;
+
+                while(pos != endPos)
+                {
+                    float t = (Time.time - startTime) / animationDuration;
+                    pos = Vector3.Lerp(startPos, endPos, t);
+                    sphere.transform.position = pos;
+                    yield return null;
+                } 
+            
+                getNext();
+            }
+
+             yield return new WaitForEndOfFrame();       
+    }
+    }
 
 
     //Checks if both nodes in a edge are functional. used to test if a tower is operational or not
@@ -146,7 +192,19 @@ public class Pathway : MonoBehaviour
 
     public void startAnimation()
     {
+        //autoAnimate = true;
         StartCoroutine(AnimateLine());
+       // StartCoroutine(AnimateLightNode());
+    }
+
+    public void TurnAutoOn()
+    {
+        autoAnimate = true;
+    }
+
+    public void TurnAutoOff()
+    {
+        autoAnimate = false;
     }
 
     // Update is called once per frame
@@ -156,3 +214,4 @@ public class Pathway : MonoBehaviour
     }
     */
 }
+

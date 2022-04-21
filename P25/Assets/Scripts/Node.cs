@@ -14,5 +14,8 @@ public class Node : MonoBehaviour
     {
         
     }
+    // void Awake(){
+    // this.transform.position = node.location;
+    // }
     
 }
