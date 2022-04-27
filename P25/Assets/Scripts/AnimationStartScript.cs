@@ -22,6 +22,8 @@ public class AnimationStartScript : MonoBehaviour
         //pathobj.Start();
         GameObject btn = GameObject.Find("AnimStartBtn");
         CamChange cam = camHolder.GetComponent<CamChange>();
+        ToggleBtnCamChanger tog = GameObject.Find("Toggle").GetComponent<ToggleBtnCamChanger>();
+        tog.animationStarted = true;
         cam.switchToTrackerCamera();
         btn.SetActive(false);
         Step_AutoanimateToggle.SetActive(true);

@@ -9,6 +9,7 @@ public class cameraFollows : MonoBehaviour
     private Vector3 offset;
     private GameObject parentCam;
     private GameObject TopCamera;
+    private Pathway startTower;
     public Pathway p;
     
     
@@ -17,7 +18,10 @@ public class cameraFollows : MonoBehaviour
     {
         //offset = transform.position - target.transform.position + (0,1,2);
         //Quaternion rotation = Quaternion.Euler(0, 30, 0);
-        offset = new Vector3(300,100,0);
+        startTower = GameObject.Find("Path Object").GetComponent<Pathway>();
+        offset = new Vector3(350,30,0);
+        //this.transform.position = startTower.startNode.location + offset;
+        
         TopCamera = GameObject.Find("TopDownCamera");
         //parentCam = GetComponent<Camera>();
         this.transform.Rotate(30f,-90f,0f,0f);

@@ -107,6 +107,7 @@ public class Transmit : MonoBehaviour
 
         //build edge 
         LineRenderer edge = buildEdgeTransmit(parent, child);
+        edge.widthMultiplier = 10f;
 
         //return without interpolating edge building. used for the fast animation
         if(p.realtimeAnimate) yield break;
@@ -127,7 +128,7 @@ public class Transmit : MonoBehaviour
 
         transmit(child);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
     }
       
 }

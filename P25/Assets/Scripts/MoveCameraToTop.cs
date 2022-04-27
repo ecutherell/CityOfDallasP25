@@ -23,7 +23,7 @@ public class MoveCameraToTop : MonoBehaviour
                 Quaternion startRotation = this.transform.rotation ;
                 Quaternion endRotation = Quaternion.Euler(new Vector3(90,180,0));//Quaternion.Euler( new Vector3(30,-90,0) ) * startRotation ;
                 Vector3 pos = startPos;
-                float  animationDuration = 5f;
+                float  animationDuration = 2f;
 
                 while(pos != endPos)
                 {

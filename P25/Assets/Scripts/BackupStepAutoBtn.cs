@@ -6,11 +6,11 @@ public class BackupStepAutoBtn : MonoBehaviour
 {
     // Start is called before the first frame update
      public GameObject holder;
-     BackupPathway pathobj;
+     Pathway pathobj;
      public Toggle parentToggle;
     void Start()
     {
-          pathobj = holder.GetComponent<BackupPathway>();
+          pathobj = holder.GetComponent<Pathway>();
         parentToggle = GetComponent<Toggle>();
         parentToggle.onValueChanged.AddListener(delegate {
             ToggleValueChanged(parentToggle);

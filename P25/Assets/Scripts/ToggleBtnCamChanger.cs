@@ -8,9 +8,13 @@ public class ToggleBtnCamChanger : MonoBehaviour
     public Toggle myToggle;
     private bool camEnabled = false;
     public bool animationStarted = false;
+    private GameObject camHolder;
+    private CamChange cams;
     public GameObject holder;
     void Start()
     {
+        camHolder = GameObject.Find("CameraChangeObject");
+        cams = camHolder.GetComponent<CamChange>();
         myToggle = GetComponent<Toggle>();
         myToggle.onValueChanged.AddListener(delegate {
             ToggleValueChanged(myToggle);
@@ -20,22 +24,54 @@ public class ToggleBtnCamChanger : MonoBehaviour
     void ToggleValueChanged(Toggle change)
     {
         CamChange cam = holder.GetComponent<CamChange>();
-        if(!camEnabled)
+
+        if(animationStarted == false)
         {
-            cam.showTopDown();
-            camEnabled = true;
+            if(!camEnabled)
+            {
+                cam.showTopDown();
+                camEnabled = true;
+            }
+
+            else 
+            {
+                cam.switchToMain();
+                camEnabled = false;
+            }
         }
 
-        // else if(animationStarted = true)
-        // {
+        else
+        {
+            if(!camEnabled)
+            {
+                cam.showTopDown();
+                camEnabled = true;
+            }
 
-        // }
+            else 
+            {
+                cam.switchToTrackerCamera();
+                camEnabled = false;
+            }     
+        }
+
+
+        // // else if(animationStarted = true)
+        // // {
+
+        // // }
             
-         else
-         {
-            cam.switchToTrackerCamera();
-            camEnabled = false;
-         }
+        //  else if(cam.trackerCamera.enabled == true)
+        //  {
+        //     cam.switchToTrackerCamera();
+        //     camEnabled = false;
+        //  }
+
+        //  else if(cams.mainCamera.enabled == true)
+        //  {
+        //      cam.switchToTrackerCamera();
+        //      camEnabled = false;
+        //  }
              
         
     }

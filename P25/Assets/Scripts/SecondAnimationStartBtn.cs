@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 public class SecondAnimationStartBtn : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -18,8 +19,11 @@ public class SecondAnimationStartBtn : MonoBehaviour
     void ClickEvent()
     {
         // Destroy the gameObject after clicking on it
-       // Pathway pathobj = holder.GetComponent<Pathway>();
-        //pathobj.Start();
+        Pathway pathobj = GameObject.Find("Path Object").GetComponent<Pathway>();
+        PathwayScriptableObject t = (PathwayScriptableObject)AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof(PathwayScriptableObject));
+        pathobj.path = t;
+        ToggleBtnCamChanger tog = GameObject.Find("Toggle").GetComponent<ToggleBtnCamChanger>();
+        tog.animationStarted = true;
         GameObject btn = GameObject.Find("SecondAnimStartBtn");
         CamChange cam = camHolder.GetComponent<CamChange>();
         cam.switchToTrackerCamera();
