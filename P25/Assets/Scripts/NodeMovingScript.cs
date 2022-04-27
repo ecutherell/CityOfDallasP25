@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class NodeMovingScript : MonoBehaviour
 {
+
+    /*
+
     public PathwayScriptableObject path;
     //Nodes used for the edge building algorithm
     public NodeScriptableObject startNode;
@@ -46,4 +49,7 @@ public class NodeMovingScript : MonoBehaviour
 
 
     }
+
+
+    */
 }

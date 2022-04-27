@@ -35,6 +35,10 @@ public class StepAutoButton : MonoBehaviour
             //pathobj.EndAnimation();
             //pathobj.startAnimation();
         }
+        else
+        {
+            pathobj.TurnAutoOff();
+        }
 
     }
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
+  m_Name: node16_CityHall
+  m_EditorClassIdentifier: 
+  nodeName: City Hall
+  id: 16
+  linkedNodes:
+  - {fileID: 11400000, guid: a527e013f36c6f541a5e3958519b6551, type: 2}
+  - {fileID: 11400000, guid: bb1facda573f3ca4db105c2a09ec045b, type: 2}
+  - {fileID: 11400000, guid: 3335f9ecb6d731647aacb8f5ff76be28, type: 2}
+  functional: 1

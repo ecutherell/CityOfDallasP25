@@ -33,7 +33,7 @@ public class ToggleBtnCamChanger : MonoBehaviour
             
          else
          {
-            cam.switchToMain();
+            cam.switchToTrackerCamera();
             camEnabled = false;
          }
              

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+
 public class Pathway : MonoBehaviour
 {
 
@@ -13,13 +13,19 @@ public class Pathway : MonoBehaviour
     public NodeScriptableObject currentNode;
     public NodeScriptableObject nextNode;
     public NodeScriptableObject endNode;
+    //Transmition script reference
+    public Transmit transmiter;
+    //helper variables
     public int itr;
     private bool finished;
+    //Control variables
     private bool autoAnimate;
+    public bool realtimeAnimate;
+    public float animationDuration = 5f;
     //Asthetics
-    public Color color1 = Color.cyan;
-    public Color color2 = Color.white;
-    private float animationDuration = 5f;
+    public Material customMat;
+    public Color color1;
+    public Color color2;
 
 
 
@@ -43,20 +49,7 @@ public class Pathway : MonoBehaviour
     //Edge building algorithm. takes a array of node and iterativly builds edges based on the path.
     LineRenderer buildEdge(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
     {
-        //If both towers are functional then create the edge
-        /*        if(isFunctional(currentNode, nextNode)){
-            GameObject g = new GameObject(itr.ToString());
-            g.AddComponent<LineRenderer>();
-            LineRenderer edge = g.GetComponent<LineRenderer>();
-            edge.SetPosition(0, currentNode.location);
-            edge.SetPosition(1, nextNode.location);
-            //edge.SetWidth();
-            //edge.startColor(color1);
-            edge.startWidth = 10;
-            //edge.endColor(color2);
-            Debug.Log("Built Edge");                                        //Debug
-            getNext();
-        }*/
+       
         if(isFunctional(currentNode, nextNode)){
             
             GameObject g = new GameObject(itr.ToString());
@@ -64,14 +57,11 @@ public class Pathway : MonoBehaviour
             LineRenderer edge = g.GetComponent<LineRenderer>();
             edge.SetPosition(0, currentNode.location);
             edge.SetPosition(1, nextNode.location);
-            edge.material = new Material(Shader.Find("Sprites/Default"));
+            edge.material = customMat;
             edge.startColor = color1;
-            edge.endColor = color2;
+            edge.endColor = color1;
 
             edge.startWidth = 20;
-            //StartCoroutine(AnimateLine(edge));
-            //Debug.Log("Built Edge");                                        //Debug
-            //getNext();
 
             return edge;
         }
@@ -84,21 +74,32 @@ public class Pathway : MonoBehaviour
 
     //Coroutine for animating the line. continously sets the edge length of the next node for a specified duration 
     private IEnumerator AnimateLine(){
-GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+        //if statement that is controlled by the realtimeAnimate variable.
+        //if building in realtime we can skip this part and call the realtimeTransmit funciton
+        while(realtimeAnimate)
+        {
+            yield return new WaitUntil(() => (autoAnimate | Input.GetMouseButton(0))); 
+            transmiter.RealtimeTransmit(endNode);
+            yield break;
+        }
+
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        MeshRenderer mesh = sphere.GetComponent<MeshRenderer>();
+        mesh.enabled = false;
+        
         while(!finished){
 
             if(autoAnimate | Input.GetMouseButton(0)) {
 
                 //build edge 
                 LineRenderer edge = buildEdge(currentNode, nextNode);
-               // 
-
-            sphere.transform.localScale = new Vector3(10f,10f,10f);
+                edge.widthMultiplier = 10f;
+                
+                sphere.transform.localScale = new Vector3(10f,10f,10f);
                 //get positions needed for the animation
                 float startTime = Time.time;
-                //Debug.Log(edge.GetPosition(0));
                 Vector3 startPos = edge.GetPosition(0);
-                
                 Vector3 endPos = edge.GetPosition(1);
                 Vector3 pos = startPos;
 
@@ -109,99 +110,29 @@ GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     edge.SetPosition(1,pos);
                     sphere.transform.position = pos;
                     yield return null;
-                } 
-                // pos = startPos;
-                // sphere.transform.localScale = new Vector3(10f,10f,10f);
-                // sphere.transform.position = edge.GetPosition(0);
-                // while(pos != endPos)
-                // {
-                //     float t = (Time.time - startTime) / animationDuration;
-                //     pos = Vector3.Lerp(startPos, endPos, t);
-                //     sphere.transform.position = pos;
-                //     yield return null;
-                // }
-            getNext();
-                
-            }
-            
-            // else if()
-            // {
-            //     LineRenderer edge = buildEdge(currentNode, nextNode);
-            //     GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            //     sphere.transform.localScale = new Vector3(10f,10f,10f);
-            //     sphere.transform.position = edge.GetPosition(0);
+                }
 
-            //     //get positions needed for the animation
-            //     float startTime = Time.time;
-            //     Vector3 startPos = edge.GetPosition(0);
-            //     Vector3 endPos = edge.GetPosition(1);
-            //     Vector3 pos = startPos;
-
-            //     while(pos != endPos)
-            //     {
-            //         float t = (Time.time - startTime) / animationDuration;
-            //         pos = Vector3.Lerp(startPos, endPos, t);
-            //         edge.SetPosition(1,pos);
-            //         sphere.transform.position = pos;
-            //         yield return null;
-            //     } 
-            //     // pos = startPos;
-            //     // sphere.transform.localScale = new Vector3(10f,10f,10f);
-            //     // sphere.transform.position = edge.GetPosition(0);
-            //     // while(pos != endPos)
-            //     // {
-            //     //     float t = (Time.time - startTime) / animationDuration;
-            //     //     pos = Vector3.Lerp(startPos, endPos, t);
-            //     //     sphere.transform.position = pos;
-            //     //     yield return null;
-            //     // }
-            
-            //     getNext();
-            // }
-
-
-
-             yield return new WaitForEndOfFrame();
-        }
-    }  
-
-    private IEnumerator AnimateLightNode()
-    {
-         while(!finished){
-
-            if(Input.GetMouseButton(0) | autoAnimate) {
-
-                //build edge 
-                LineRenderer edge = buildEdge(currentNode, nextNode);
-                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                sphere.transform.localScale = new Vector3(10f,10f,10f);
-                sphere.transform.position = edge.GetPosition(0);
-
-                //get positions needed for the animation
-                float startTime = Time.time;
-                Vector3 startPos = edge.GetPosition(0);
-                Vector3 endPos = edge.GetPosition(1);
-                Vector3 pos = startPos;
-
-                while(pos != endPos)
-                {
-                    float t = (Time.time - startTime) / animationDuration;
-                    pos = Vector3.Lerp(startPos, endPos, t);
-                    sphere.transform.position = pos;
-                    yield return null;
-                } 
-            
                 getNext();
             }
 
-             yield return new WaitForEndOfFrame();       
-    }
-    }
+            //yield return new WaitForEndOfFrame();
+            yield return new WaitUntil(() => (autoAnimate | Input.GetMouseButton(0))); 
+        }
+
+        //clear path and produce outgoing transmition
+        Debug.Log("at end of corutine");
+        yield return new WaitForSeconds(2);
+        ClearPath();
+        GameObject camera = GameObject.Find("EdgeFollow");
+        cameraFollows cam = camera.GetComponent<cameraFollows>();
+        cam.StartTransitionAnimation();
+        transmiter.transmit(endNode);
+    }  
 
 
     //Checks if both nodes in a edge are functional. used to test if a tower is operational or not
     //used to check if buildEdge should be run
-    bool isFunctional(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
+    public bool isFunctional(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
     {
         //True case
         if(currentNode.getFunctional() & nextNode.getFunctional()) {
@@ -225,6 +156,9 @@ GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         nextNode = path.pathway[itr];
         finished = false;
         autoAnimate = false;
+        realtimeAnimate = false;
+        color1 = Color.cyan;
+        color2 = Color.green;
 
         //Run the Coroutine
         //StartCoroutine(AnimateLine());
@@ -234,7 +168,7 @@ GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     {
         //autoAnimate = true;
         StartCoroutine(AnimateLine());
-       // StartCoroutine(AnimateLightNode());
+        //StartCoroutine(AnimateLightNode());
     }
 
     public void TurnAutoOn()
@@ -259,18 +193,23 @@ GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         
     }
 
-    public void setBackupPath()
+    public void RTOn()
     {
-        //path =  AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof("PathwayScriptableObject"));
-        Debug.Log("loading backup path");
-        
+        realtimeAnimate = true;
+    }
+    public void RTOff()
+    {
+        realtimeAnimate = false;
     }
 
-    // Update is called once per frame
-    /*void Update()
+    //Deletes edges created in this script. improves performance
+    private void ClearPath()
     {
-
+        for(int i = 1; i <= itr; i++)
+        {
+            GameObject temp = GameObject.Find(i.ToString());
+            Destroy(temp);
+        }
     }
-    */
 }
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64f1a2a14b9a3d47bbf50a48cb2eb74, type: 3}
+  m_Name: node27_Southside
+  m_EditorClassIdentifier: 
+  nodeName: Southside
+  id: 27
+  linkedNodes:
+  - {fileID: 11400000, guid: bb1facda573f3ca4db105c2a09ec045b, type: 2}
+  - {fileID: 11400000, guid: bd2984fd51739bb458dce1a53d0bc908, type: 2}
+  - {fileID: 11400000, guid: af5d7a3ed8bd33b4e8ad5e9e2a0b257f, type: 2}
+  - {fileID: 11400000, guid: 3f7bbd96eedf2a54990cd933cecc5f9f, type: 2}
+  functional: 1
+  location: {x: 30.6091, y: 554.5, z: 25488.428}

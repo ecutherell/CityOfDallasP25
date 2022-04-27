@@ -15,6 +15,10 @@ public class CamChange : MonoBehaviour
      mainCamera = GameObject.Find("Broadway Camera").GetComponent<Camera>();
      topDownCamera = GameObject.Find("TopDownCamera").GetComponent<Camera>();
      trackerCamera = GameObject.Find("EdgeFollow").GetComponent<Camera>();
+        mainCamera.enabled = true;
+        topDownCamera.enabled = false;
+        trackerCamera.enabled = false;
+
     }
 
     public void showTopDown()
