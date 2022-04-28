@@ -10,6 +10,7 @@ public class MoveCameraToTop : MonoBehaviour
     {
         
         TopCamera = GameObject.Find("TopDownCamera");
+        Camera cam = this.GetComponent<Camera>(); cam.fieldOfView = 90;
         //this.transform.Rotate(-30f,90f,0f,0f);
         StartCoroutine(GoToTop());
     }

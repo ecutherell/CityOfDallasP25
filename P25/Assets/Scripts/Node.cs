@@ -12,7 +12,7 @@ public class Node : MonoBehaviour
     public Color currentColor;
 
     
-    void Awake()
+    void Start()
     {
         this.transform.position = node.location;
         node.transmitted = false;

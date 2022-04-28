@@ -19,4 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d003c44783bae184791d1b4d001b40e1, type: 2}
   - {fileID: 11400000, guid: 4a77d7367d087ee4ca94dbb71210816e, type: 2}
   functional: 1
-  location: {x: 3577.558, y: 553.5, z: -9021.518}
+  location: {x: 1624.5156, y: 553.5, z: -26198.172}
+  transmitted: 0

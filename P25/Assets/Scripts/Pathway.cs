@@ -85,6 +85,10 @@ public class Pathway : MonoBehaviour
         }
 
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        GameObject camera = GameObject.Find("EdgeFollow");
+        cameraFollows cam = camera.GetComponent<cameraFollows>();
+        camera.SetActive(true);
+        cam.enabled = true;
         MeshRenderer mesh = sphere.GetComponent<MeshRenderer>();
         mesh.enabled = false;
         
@@ -95,6 +99,7 @@ public class Pathway : MonoBehaviour
                 //build edge 
                 LineRenderer edge = buildEdge(currentNode, nextNode);
                 edge.widthMultiplier = 10f;
+                edge.numCapVertices = 5;
                 
                 sphere.transform.localScale = new Vector3(10f,10f,10f);
                 //get positions needed for the animation
@@ -123,8 +128,7 @@ public class Pathway : MonoBehaviour
         Debug.Log("at end of corutine");
         yield return new WaitForSeconds(2);
         ClearPath();
-        GameObject camera = GameObject.Find("EdgeFollow");
-        cameraFollows cam = camera.GetComponent<cameraFollows>();
+
         cam.StartTransitionAnimation();
         transmiter.transmit(endNode);
     }  

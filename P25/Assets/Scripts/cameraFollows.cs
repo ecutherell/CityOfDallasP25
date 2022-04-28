@@ -19,7 +19,8 @@ public class cameraFollows : MonoBehaviour
         //offset = transform.position - target.transform.position + (0,1,2);
         //Quaternion rotation = Quaternion.Euler(0, 30, 0);
         startTower = GameObject.Find("Path Object").GetComponent<Pathway>();
-        offset = new Vector3(350,30,0);
+        offset = new Vector3(350,150,0);
+        Camera cam = this.GetComponent<Camera>(); cam.fieldOfView = 60;
         //this.transform.position = startTower.startNode.location + offset;
         
         TopCamera = GameObject.Find("TopDownCamera");
@@ -65,6 +66,7 @@ public class cameraFollows : MonoBehaviour
     public void StartTransitionAnimation()
     {
         Debug.Log("Starting Camera Movement");
+        Camera cam = this.GetComponent<Camera>(); cam.fieldOfView = 60;
         enabled = false;
         MoveCameraToTop move = GetComponent<MoveCameraToTop>();
         move.enabled = true;

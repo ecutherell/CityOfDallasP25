@@ -20,7 +20,8 @@ public class SecondAnimationStartBtn : MonoBehaviour
     {
         // Destroy the gameObject after clicking on it
         Pathway pathobj = GameObject.Find("Path Object").GetComponent<Pathway>();
-        PathwayScriptableObject t = (PathwayScriptableObject)AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof(PathwayScriptableObject));
+       //PathwayScriptableObject t = (PathwayScriptableObject)AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof(PathwayScriptableObject));
+        PathwayScriptableObject t = Resources.Load<PathwayScriptableObject>("BackupPathway");
         pathobj.path = t;
         ToggleBtnCamChanger tog = GameObject.Find("Toggle").GetComponent<ToggleBtnCamChanger>();
         tog.animationStarted = true;
