@@ -10,6 +10,7 @@ public class cameraFollows : MonoBehaviour
     private GameObject parentCam;
     private GameObject TopCamera;
     private Pathway startTower;
+    public bool startedTracking = false;
     public Pathway p;
     
     
@@ -18,6 +19,12 @@ public class cameraFollows : MonoBehaviour
     {
         //offset = transform.position - target.transform.position + (0,1,2);
         //Quaternion rotation = Quaternion.Euler(0, 30, 0);
+        //this.enabled = false;
+
+    }
+
+    public void StartTracking()
+    {
         startTower = GameObject.Find("Path Object").GetComponent<Pathway>();
         offset = new Vector3(350,150,0);
         Camera cam = this.GetComponent<Camera>(); cam.fieldOfView = 60;
@@ -26,13 +33,14 @@ public class cameraFollows : MonoBehaviour
         TopCamera = GameObject.Find("TopDownCamera");
         //parentCam = GetComponent<Camera>();
         this.transform.Rotate(30f,-90f,0f,0f);
+        startedTracking = true;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         //only use the tracking camera if in slowed down animation
-        if(p.realtimeAnimate == false)
+        if(p.realtimeAnimate == false && startedTracking == true)
         {
             target = GameObject.Find("Sphere");
         

@@ -86,15 +86,19 @@ public class Pathway : MonoBehaviour
 
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         GameObject camera = GameObject.Find("EdgeFollow");
-        cameraFollows cam = camera.GetComponent<cameraFollows>();
+        cameraFollows camScript = camera.GetComponent<cameraFollows>();
+        CameraInitialize camScript2 = camera.GetComponent<CameraInitialize>();
         camera.SetActive(true);
-        cam.enabled = true;
+        camScript.StartTracking();
         MeshRenderer mesh = sphere.GetComponent<MeshRenderer>();
         mesh.enabled = false;
         
         while(!finished){
 
             if(autoAnimate | Input.GetMouseButton(0)) {
+        
+        camScript.enabled = true;
+        camScript2.enabled = false;
 
                 //build edge 
                 LineRenderer edge = buildEdge(currentNode, nextNode);
@@ -129,7 +133,7 @@ public class Pathway : MonoBehaviour
         yield return new WaitForSeconds(2);
         ClearPath();
 
-        cam.StartTransitionAnimation();
+        camScript.StartTransitionAnimation();
         transmiter.transmit(endNode);
     }  
 

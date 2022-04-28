@@ -27,6 +27,7 @@ public class AnimationStartScript : MonoBehaviour
         cam.switchToTrackerCamera();
         btn.SetActive(false);
         Step_AutoanimateToggle.SetActive(true);
+       // CameraInitialize initialCam =  GameObject.Find("EdgeFollow").GetComponent<CameraInitialize>();
         //pathobj.TurnAutoOn();
         //pathobj.startAnimation();
 
