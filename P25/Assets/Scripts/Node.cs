@@ -10,12 +10,18 @@ public class Node : MonoBehaviour
     public ParticleSystem lightParticle;
     public ParticleSystem signalParticle;
     public Color currentColor;
+    //manages emissions. allow emmit to be enabled once per scene
+    private bool emissionManager;
 
     
-    void Start()
+    void Awake()
     {
+        //move node to position on wake up
         this.transform.position = node.location;
+        //set the scene
         node.transmitted = false;
+        //turn off emmissions until the tower transmits
+        emissionManager = false;
         var em = signalParticle.emission;
         em.enabled = false;
     }
@@ -44,13 +50,21 @@ public class Node : MonoBehaviour
             ParticleSystem.MainModule sp = signalParticle.main;
             ParticleSystem.MainModule lp = lightParticle.main;
             lp.startColor = currentColor;
-            var em = signalParticle.emission;
-            em.enabled = true;
-        }
+            
+            //sp.startColor = currentColor;         // only if we want sonar particles to be green. comment out for white
 
+            //turn on emmision. locked behind conditional so update doesn't re-emmit constantly
+            if(emissionManager == false)
+            {
+                var em = signalParticle.emission;
+                em.enabled = true;
+                emissionManager = true;
+            }
+
+        }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         ColorManager();
     }
