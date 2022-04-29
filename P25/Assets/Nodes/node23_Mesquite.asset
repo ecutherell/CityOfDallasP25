@@ -15,8 +15,8 @@ MonoBehaviour:
   nodeName: Mesquite Service Center
   id: 23
   linkedNodes:
-  - {fileID: 11400000, guid: 88aff9307b96826458a879d3b3e907fa, type: 2}
-  - {fileID: 11400000, guid: af5d7a3ed8bd33b4e8ad5e9e2a0b257f, type: 2}
+  - {fileID: 11400000, guid: a6e0235d8b1a7044dba698c23a57f9f0, type: 2}
+  - {fileID: 11400000, guid: 3fb839c89b8e2c743bbd58e45ac8e83c, type: 2}
   functional: 1
   location: {x: -20022.129, y: 553, z: 4165.0967}
-  transmitted: 0
+  transmitted: 1

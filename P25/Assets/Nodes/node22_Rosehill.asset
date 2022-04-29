@@ -15,8 +15,8 @@ MonoBehaviour:
   nodeName: Rosehill
   id: 22
   linkedNodes:
-  - {fileID: 11400000, guid: 4a77d7367d087ee4ca94dbb71210816e, type: 2}
-  - {fileID: 11400000, guid: 40a2c698d2b78b8439a32f5efe0996a9, type: 2}
+  - {fileID: 11400000, guid: fee72ec5b7d56474ea54efec698729a1, type: 2}
+  - {fileID: 11400000, guid: d150c17a7cb366745ab75feffe8f1712, type: 2}
   functional: 1
   location: {x: -19358.27, y: 553, z: -6641.4946}
-  transmitted: 0
+  transmitted: 1

@@ -10,7 +10,12 @@ public class Transmit : MonoBehaviour
 {
 
     //Declare variables
-    public Pathway p;
+    //RealTimeToggle t = GameObject.Find("Real_Time_Toggle").getComponent<RealTimeToggle>();
+    
+    public Pathway p ;
+
+    //p.realtimeAnimate
+    //public bool realTimeAnimate = ;
    //private TMP_Text myText;
 
     //This function simulates the signals transmition through all towers after reaching the trunking location
@@ -18,9 +23,11 @@ public class Transmit : MonoBehaviour
     public void transmit(NodeScriptableObject root)
     {
 
+        
+
         Debug.Log("inside transmit");                                                                        //DEBUG
         Debug.Log("Name of root: " + root.nodeName);                                                         //DEBUG
-
+        StartCoroutine(generateUINames(root));
         root.transmitted = true;
         Debug.Log("Dequing: " + root.nodeName);                                                                 //DEBUG
 
@@ -30,7 +37,7 @@ public class Transmit : MonoBehaviour
             {
                 continue;
             }
-            StartCoroutine(generateUINames(root));
+            
             StartCoroutine(AnimateTransmition(root,v));
 
             Debug.Log("Enquing: " + v.nodeName);
@@ -157,7 +164,7 @@ private IEnumerator generateUINames(NodeScriptableObject parent)
 
     /*This sh*t doesn't work when trying to build, will have to do Resources.Load() later but idrc right now*/
     myText.font = (Font)AssetDatabase.LoadAssetAtPath("Assets/TextMesh Pro/Fonts/LiberationSans.ttf", typeof(Font));
-    myText.fontSize = 36;
+    myText.fontSize = 24;
     myText.verticalOverflow = VerticalWrapMode.Overflow; /*Literally if you do not have this the text will not show up...took me forever to figure this out*/
     myText.text = parent.nodeName;
     myText.transform.Rotate(90f,180f,0,0); /*Rotates the text to be flat and aligned with the canvas plane*/

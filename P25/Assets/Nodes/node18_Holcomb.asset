@@ -15,9 +15,9 @@ MonoBehaviour:
   nodeName: Holcomb
   id: 18
   linkedNodes:
-  - {fileID: 11400000, guid: 3335f9ecb6d731647aacb8f5ff76be28, type: 2}
-  - {fileID: 11400000, guid: f973528f64c1f1c41ae1db8e35ad07d8, type: 2}
-  - {fileID: 11400000, guid: 443b0b5e33c83f545a7ece2d1c80ef2e, type: 2}
+  - {fileID: 11400000, guid: 0cb679d1ed7851740ba3b9195a5d6df6, type: 2}
+  - {fileID: 11400000, guid: 8a38519e3b2d9d141ab4c06b090a3c33, type: 2}
+  - {fileID: 11400000, guid: 810f8b6749c3bdd4f8986ee20a255b79, type: 2}
   functional: 1
   location: {x: -9896.371, y: 572.5, z: 8655.17}
-  transmitted: 0
+  transmitted: 1

@@ -16,8 +16,8 @@ MonoBehaviour:
   id: 14
   linkedNodes:
   - {fileID: 11400000, guid: 463d6f3766322a34b9649a1189cdf781, type: 2}
-  - {fileID: 11400000, guid: d003c44783bae184791d1b4d001b40e1, type: 2}
-  - {fileID: 11400000, guid: 4a77d7367d087ee4ca94dbb71210816e, type: 2}
+  - {fileID: 11400000, guid: 05e7b39f9fb02ad4cbfe7636313b7935, type: 2}
+  - {fileID: 11400000, guid: fee72ec5b7d56474ea54efec698729a1, type: 2}
   functional: 1
   location: {x: 1624.5156, y: 553.5, z: -26198.172}
-  transmitted: 0
+  transmitted: 1

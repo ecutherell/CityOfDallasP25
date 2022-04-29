@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
+using TMPro;
 public class Pathway : MonoBehaviour
 {
 
@@ -49,7 +50,14 @@ public class Pathway : MonoBehaviour
     //Edge building algorithm. takes a array of node and iterativly builds edges based on the path.
     LineRenderer buildEdge(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
     {
-       
+        
+        GameObject currentText = GameObject.Find("CurrentNodeText");
+        currentText.transform.parent.gameObject.SetActive(true);// = true;
+        GameObject nextText = GameObject.Find("NextNodeText");
+        TextMeshProUGUI CurrentGUIText = currentText.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI NextGUIText = nextText.GetComponent<TextMeshProUGUI>();
+        CurrentGUIText.text = currentNode.nodeName;
+        NextGUIText.text = nextNode.nodeName;
         if(isFunctional(currentNode, nextNode)){
             
             GameObject g = new GameObject(itr.ToString());
@@ -154,9 +162,24 @@ public class Pathway : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        //instantiate objects
+    // void Start()
+    // {
+    //     //instantiate objects
+    //     startNode = path.pathway[0];
+    //     endNode = path.pathway[path.pathway.Length - 1];
+    //     itr = 1;
+    //     currentNode = startNode;
+    //     nextNode = path.pathway[itr];
+    //     finished = false;
+    //     autoAnimate = false;
+    //     realtimeAnimate = false;
+    //     color1 = Color.cyan;
+    //     color2 = Color.green;
+
+    //     //Run the Coroutine
+    //     //StartCoroutine(AnimateLine());
+    // }
+    public void setPath(){
         startNode = path.pathway[0];
         endNode = path.pathway[path.pathway.Length - 1];
         itr = 1;
@@ -164,12 +187,9 @@ public class Pathway : MonoBehaviour
         nextNode = path.pathway[itr];
         finished = false;
         autoAnimate = false;
-        realtimeAnimate = false;
+        //realtimeAnimate = false;
         color1 = Color.cyan;
         color2 = Color.green;
-
-        //Run the Coroutine
-        //StartCoroutine(AnimateLine());
     }
 
     public void startAnimation()

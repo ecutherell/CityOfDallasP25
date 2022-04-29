@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CamChange : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,7 +9,8 @@ public class CamChange : MonoBehaviour
     public Camera topDownCamera;
     public Camera trackerCamera;
     public Camera HighlandCam;
-
+    public GameObject toggle;
+    public  Toggle tg;
 
     void Start()
     {
@@ -17,10 +18,13 @@ public class CamChange : MonoBehaviour
      topDownCamera = GameObject.Find("TopDownCamera").GetComponent<Camera>();
      trackerCamera = GameObject.Find("EdgeFollow").GetComponent<Camera>();
      HighlandCam = GameObject.Find("Highland Camera").GetComponent<Camera>();
+     toggle = GameObject.Find("Real_Time_Toggle");
+     tg = toggle.GetComponent<Toggle>();
         mainCamera.enabled = true;
         topDownCamera.enabled = false;
         trackerCamera.enabled = false;
         HighlandCam.enabled = false;
+        tg.interactable = false;
 
     }
 
@@ -31,6 +35,7 @@ public class CamChange : MonoBehaviour
         topDownCamera.enabled = true;
         //trackerCamera.enabled = false;
         HighlandCam.enabled = false;
+        tg.interactable = true;
     }
 
     public void switchToMain()
@@ -40,6 +45,7 @@ public class CamChange : MonoBehaviour
         topDownCamera.enabled = false;
         trackerCamera.enabled = false;
         HighlandCam.enabled = false;
+        tg.interactable = false;
     }
     public void switchToTrackerCamera()
     {
@@ -48,6 +54,7 @@ public class CamChange : MonoBehaviour
         topDownCamera.enabled = false;
         trackerCamera.enabled = true;
         HighlandCam.enabled = false;
+        tg.interactable = false;
     }
     public void switchToHighlandCamera()
     {
@@ -56,6 +63,7 @@ public class CamChange : MonoBehaviour
         topDownCamera.enabled = false;
         trackerCamera.enabled = false;
         HighlandCam.enabled = true;
+        tg.interactable = false;
     }
 
 }

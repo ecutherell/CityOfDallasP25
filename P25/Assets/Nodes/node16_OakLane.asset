@@ -17,8 +17,10 @@ MonoBehaviour:
   linkedNodes:
   - {fileID: 11400000, guid: f2c888b711506534793cceb96fbbe5df, type: 2}
   - {fileID: 11400000, guid: bb1facda573f3ca4db105c2a09ec045b, type: 2}
-  - {fileID: 11400000, guid: 6632adfe8c5d95041a82ddd08a425c7c, type: 2}
-  - {fileID: 11400000, guid: bd2984fd51739bb458dce1a53d0bc908, type: 2}
+  - {fileID: 11400000, guid: 5bc7c763ee2c89341842ac4a8c805047, type: 2}
+  - {fileID: 11400000, guid: c69aab4080358084db60ed783cff65e3, type: 2}
+  - {fileID: 11400000, guid: 904fc38133748194f870f857fb7252c9, type: 2}
+  - {fileID: 11400000, guid: 79d2167d18ccdb645b6d41dcb576256d, type: 2}
   functional: 1
-  location: {x: -3593.7773, y: 550.5, z: 2050.6658}
+  location: {x: 567.16406, y: 553.7444, z: 2678.7012}
   transmitted: 0

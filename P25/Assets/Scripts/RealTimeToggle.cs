@@ -18,9 +18,9 @@ public class RealTimeToggle : MonoBehaviour
         Pathway path = PathwayHolder.GetComponent<Pathway>();
         //topDownCamera = Gma
          myToggle = GetComponent<Toggle>();
-        // myToggle.onValueChanged.AddListener(delegate {
-        //     ToggleValueChanged(myToggle);
-        // });
+        myToggle.onValueChanged.AddListener(delegate {
+            ToggleValueChanged(myToggle);
+        });
     }
 
     void ToggleValueChanged(Toggle change)
@@ -29,10 +29,15 @@ public class RealTimeToggle : MonoBehaviour
         GameObject PathwayHolder = GameObject.Find("Path Object");
         topDownCamera = GameObject.Find("TopDownCamera").GetComponent<Camera>();
         Pathway path = PathwayHolder.GetComponent<Pathway>();
+        Debug.Log(topDownCamera.enabled + " " + myToggle.isOn);
         if(topDownCamera.enabled == true && myToggle.isOn == true)
-            path.RTOn();
+        {
+            
+            path.realtimeAnimate = true;
+        }
+            
         else if(topDownCamera.enabled == false)
-            path.RTOff();
+            path.realtimeAnimate = false;
              
         
     }

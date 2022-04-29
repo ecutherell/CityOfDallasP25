@@ -15,10 +15,10 @@ MonoBehaviour:
   nodeName: Forest
   id: 8
   linkedNodes:
-  - {fileID: 11400000, guid: 9e031474c709c874e80195aa967053c5, type: 2}
+  - {fileID: 11400000, guid: 8bfafdbd4917cf94ab75e3977d7f9620, type: 2}
   - {fileID: 11400000, guid: f2c888b711506534793cceb96fbbe5df, type: 2}
   - {fileID: 11400000, guid: 2ead45dc27dec6c4fbfa6c7a623085ed, type: 2}
   - {fileID: 11400000, guid: 0f1492d292be5bc4ab636e7aef1dc678, type: 2}
   functional: 1
   location: {x: 4692.0503, y: 556, z: -14288.587}
-  transmitted: 0
+  transmitted: 1

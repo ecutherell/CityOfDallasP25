@@ -23,11 +23,25 @@ public class SecondAnimationStartBtn : MonoBehaviour
        //PathwayScriptableObject t = (PathwayScriptableObject)AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof(PathwayScriptableObject));
         PathwayScriptableObject t = Resources.Load<PathwayScriptableObject>("BackupPathway");
         pathobj.path = t;
+        pathobj.setPath();
+        
+        GameObject btn = GameObject.Find("SecondAnimStartBtn");
+        GameObject secondbtn = GameObject.Find("AnimStartBtn");
+        secondbtn.SetActive(false);
+        CamChange cam = camHolder.GetComponent<CamChange>();
         ToggleBtnCamChanger tog = GameObject.Find("Toggle").GetComponent<ToggleBtnCamChanger>();
         tog.animationStarted = true;
-        GameObject btn = GameObject.Find("SecondAnimStartBtn");
-        CamChange cam = camHolder.GetComponent<CamChange>();
-        cam.switchToTrackerCamera();
+        CameraInitialize camI = GameObject.Find("EdgeFollow").GetComponent<CameraInitialize>();
+        camI.moveCamera();
+        if(cam.tg.interactable == true)
+        {
+            //do nothing
+        }
+        else if(cam.tg.interactable == false)
+        {
+            cam.switchToTrackerCamera();
+        }
+        //cam.switchToTrackerCamera();
         btn.SetActive(false);
         Step_AutoanimateToggle.SetActive(true);
         //pathobj.TurnAutoOn();

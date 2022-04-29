@@ -15,8 +15,8 @@ MonoBehaviour:
   nodeName: McKenzie
   id: 24
   linkedNodes:
-  - {fileID: 11400000, guid: 40a2c698d2b78b8439a32f5efe0996a9, type: 2}
-  - {fileID: 11400000, guid: 443b0b5e33c83f545a7ece2d1c80ef2e, type: 2}
+  - {fileID: 11400000, guid: d150c17a7cb366745ab75feffe8f1712, type: 2}
+  - {fileID: 11400000, guid: 810f8b6749c3bdd4f8986ee20a255b79, type: 2}
   functional: 1
   location: {x: -21780.117, y: 553, z: 12354.9795}
-  transmitted: 0
+  transmitted: 1

@@ -10,18 +10,18 @@ public class CameraInitialize : MonoBehaviour
     public Vector3 startTowerLocation;
     void Start()
     {
-        startTower = GameObject.Find("Path Object").GetComponent<Pathway>();
+        
         //startTowerLocation = startTower.startNode.location;
         //yield return new WaitForSeconds(3);
-        StartCoroutine(moveCamera());
+        //StartCoroutine(moveCamera());
         
     }
 
-    private IEnumerator moveCamera()
+    public void moveCamera()
     {
-        yield return new WaitForSeconds(1);
-        Debug.Log(startTower.startNode.nodeName);
-        
+        //yield return new WaitForSeconds(1);
+        //Debug.Log(startTower.startNode.nodeName);
+        startTower = GameObject.Find("Path Object").GetComponent<Pathway>();
         this.transform.position = startTower.startNode.location + offset;
     }
 
