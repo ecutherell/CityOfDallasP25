@@ -51,13 +51,13 @@ public class Pathway : MonoBehaviour
     LineRenderer buildEdge(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
     {
         
-        GameObject currentText = GameObject.Find("CurrentNodeText");
-        currentText.transform.parent.gameObject.SetActive(true);// = true;
-        GameObject nextText = GameObject.Find("NextNodeText");
-        TextMeshProUGUI CurrentGUIText = currentText.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI NextGUIText = nextText.GetComponent<TextMeshProUGUI>();
-        CurrentGUIText.text = currentNode.nodeName;
-        NextGUIText.text = nextNode.nodeName;
+        // GameObject currentText = GameObject.Find("CurrentNodeText");
+        // //currentText.transform.parent.gameObject.SetActive(true);// = true;
+        // GameObject nextText = GameObject.Find("NextNodeText");
+        // TextMeshProUGUI CurrentGUIText = currentText.GetComponent<TextMeshProUGUI>();
+        // TextMeshProUGUI NextGUIText = nextText.GetComponent<TextMeshProUGUI>();
+        // CurrentGUIText.text = currentNode.nodeName;
+        // NextGUIText.text = nextNode.nodeName;
         if(isFunctional(currentNode, nextNode)){
             
             GameObject g = new GameObject(itr.ToString());
@@ -138,7 +138,7 @@ public class Pathway : MonoBehaviour
 
         //clear path and produce outgoing transmition
         Debug.Log("at end of corutine");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         ClearPath();
 
         camScript.StartTransitionAnimation();

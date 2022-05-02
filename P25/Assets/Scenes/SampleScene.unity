@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 3750.8184, g: 2279.2795, b: 1934.9653, a: 1}
+  m_IndirectSpecularColor: {r: 4637.743, g: 2980.3242, b: 2508.7773, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -85041,7 +85041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1388325528
 RectTransform:
   m_ObjectHideFlags: 0
@@ -154489,11 +154489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8430667535377970304, guid: b1d91f605066f82478266fa7027c051c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5715
+      value: 8403
       objectReference: {fileID: 0}
     - target: {fileID: 8430667535377970304, guid: b1d91f605066f82478266fa7027c051c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40667
+      value: 40541
       objectReference: {fileID: 0}
     - target: {fileID: 8430667535377970304, guid: b1d91f605066f82478266fa7027c051c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -154541,7 +154541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8430667535377970305, guid: b1d91f605066f82478266fa7027c051c, type: 3}
       propertyPath: field of view
-      value: 73.4
+      value: 68.8
       objectReference: {fileID: 0}
     - target: {fileID: 8430667535377970305, guid: b1d91f605066f82478266fa7027c051c, type: 3}
       propertyPath: m_FocalLength
@@ -154607,15 +154607,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015402445610094906, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_Color.b
-      value: 0.5566038
+      value: 0.46226418
       objectReference: {fileID: 0}
     - target: {fileID: 9015402445610094906, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_Color.g
-      value: 0.51450044
+      value: 0.45303902
       objectReference: {fileID: 0}
     - target: {fileID: 9015402445610094906, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_Color.r
-      value: 0.09714311
+      value: 0.36414206
       objectReference: {fileID: 0}
     - target: {fileID: 9015402445812524467, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_AnchorMax.x
@@ -154739,7 +154739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015402446035078205, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 85.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015402446035078205, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -154799,7 +154799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015402446566879757, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015402446566879757, guid: 0d6ef125088454543b211438d300c731, type: 3}
       propertyPath: m_AnchoredPosition.y

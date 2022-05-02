@@ -74,7 +74,7 @@ public class cameraFollows : MonoBehaviour
     public void StartTransitionAnimation()
     {
         Debug.Log("Starting Camera Movement");
-        Camera cam = this.GetComponent<Camera>(); cam.fieldOfView = 60;
+        Camera cam = this.GetComponent<Camera>(); cam.fieldOfView = 73.4f;
         enabled = false;
         MoveCameraToTop move = GetComponent<MoveCameraToTop>();
         move.enabled = true;
