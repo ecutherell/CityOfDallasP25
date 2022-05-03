@@ -17,9 +17,6 @@ public class StepAutoButton : MonoBehaviour
         });
         if(!parentToggle.isOn)
         {
-            //pathobj.EndAnimation();
-            //pathobj.TurnAutoOff();
-            
             pathobj.startAnimation();
         }
 
@@ -32,8 +29,6 @@ public class StepAutoButton : MonoBehaviour
         if(parentToggle.isOn)
         {
             pathobj.TurnAutoOn();
-            //pathobj.EndAnimation();
-            //pathobj.startAnimation();
         }
         else
         {

@@ -15,7 +15,7 @@ public class Pathway : MonoBehaviour
     public NodeScriptableObject nextNode;
     public NodeScriptableObject endNode;
     //Transmition script reference
-    public Transmit transmiter;
+    public Transmit transmitter;
     //helper variables
     public int itr;
     private bool finished;
@@ -50,7 +50,7 @@ public class Pathway : MonoBehaviour
     //Edge building algorithm. takes a array of node and iterativly builds edges based on the path.
     LineRenderer buildEdge(NodeScriptableObject currentNode, NodeScriptableObject nextNode)
     {
-        
+        /*This commented out section is for having text near towers in dop down view, future people can uncomment this and work with Transmit.cs to figure out how to do it*/
         // GameObject currentText = GameObject.Find("CurrentNodeText");
         // //currentText.transform.parent.gameObject.SetActive(true);// = true;
         // GameObject nextText = GameObject.Find("NextNodeText");
@@ -88,7 +88,7 @@ public class Pathway : MonoBehaviour
         while(realtimeAnimate)
         {
             yield return new WaitUntil(() => (autoAnimate | Input.GetMouseButton(0))); 
-            transmiter.RealtimeTransmit(endNode);
+            transmitter.RealtimeTransmit(endNode);
             yield break;
         }
 
@@ -142,7 +142,7 @@ public class Pathway : MonoBehaviour
         ClearPath();
 
         camScript.StartTransitionAnimation();
-        transmiter.transmit(endNode);
+        transmitter.transmit(endNode);
     }  
 
 
@@ -162,6 +162,7 @@ public class Pathway : MonoBehaviour
 
 
     // Start is called before the first frame update
+    /*This is a good function for testing, so do not delete it*/
     // void Start()
     // {
     //     //instantiate objects
@@ -194,9 +195,7 @@ public class Pathway : MonoBehaviour
 
     public void startAnimation()
     {
-        //autoAnimate = true;
         StartCoroutine(AnimateLine());
-        //StartCoroutine(AnimateLightNode());
     }
 
     public void TurnAutoOn()
@@ -217,7 +216,6 @@ public class Pathway : MonoBehaviour
 
     public void EndAnimation(){
         StopCoroutine(AnimateLine());
-         //SceneManager.LoadScene("SampleScene");
         
     }
 

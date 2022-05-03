@@ -17,10 +17,6 @@ public class BackupStepAutoBtn : MonoBehaviour
         });
         if(!parentToggle.isOn)
         {
-            //pathobj.EndAnimation();
-            //pathobj.TurnAutoOff();
-            //pathobj.
-            //pathobj.setBackupPath();
             pathobj.startAnimation();
         }
 
@@ -33,8 +29,7 @@ public class BackupStepAutoBtn : MonoBehaviour
         if(parentToggle.isOn)
         {
             pathobj.TurnAutoOn();
-            //pathobj.EndAnimation();
-            //pathobj.startAnimation();
+
         }
 
     }

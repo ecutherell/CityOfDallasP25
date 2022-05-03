@@ -25,10 +25,4 @@ public class CameraInitialize : MonoBehaviour
         this.transform.position = startTower.startNode.location + offset;
     }
 
-    // Update is called once per frame
-    // void Update()
-    //     {
-    //         Debug.Log(startTower.startNode.nodeName);
-    //     }
-
 }

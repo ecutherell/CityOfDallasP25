@@ -19,15 +19,11 @@ public class AnimationStartScript : MonoBehaviour
 
     void ClickEvent()
     {
-        // Destroy the gameObject after clicking on it
-       // Pathway pathobj = holder.GetComponent<Pathway>();
-        //pathobj.Start();
+
         Pathway pathobj = GameObject.Find("Path Object").GetComponent<Pathway>();
-       //PathwayScriptableObject t = (PathwayScriptableObject)AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof(PathwayScriptableObject));
         PathwayScriptableObject t = Resources.Load<PathwayScriptableObject>("MainPathWay");
         pathobj.path = t;
         pathobj.setPath();
-        //Transmit transmiter = GameOb
         GameObject btn = GameObject.Find("AnimStartBtn");
         GameObject secondbtn = GameObject.Find("SecondAnimStartBtn");
         secondbtn.SetActive(false);
@@ -48,9 +44,6 @@ public class AnimationStartScript : MonoBehaviour
         
         btn.SetActive(false);
         Step_AutoanimateToggle.SetActive(true);
-       // CameraInitialize initialCam =  GameObject.Find("EdgeFollow").GetComponent<CameraInitialize>();
-        //pathobj.TurnAutoOn();
-        //pathobj.startAnimation();
 
     }
 

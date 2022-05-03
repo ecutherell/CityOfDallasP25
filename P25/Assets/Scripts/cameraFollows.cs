@@ -28,8 +28,6 @@ public class cameraFollows : MonoBehaviour
         startTower = GameObject.Find("Path Object").GetComponent<Pathway>();
         offset = new Vector3(350,150,0);
         Camera cam = this.GetComponent<Camera>(); cam.fieldOfView = 60;
-        //this.transform.position = startTower.startNode.location + offset;
-        
         TopCamera = GameObject.Find("TopDownCamera");
         //parentCam = GetComponent<Camera>();
         this.transform.Rotate(30f,-90f,0f,0f);
@@ -43,9 +41,6 @@ public class cameraFollows : MonoBehaviour
         if(p.realtimeAnimate == false && startedTracking == true)
         {
             target = GameObject.Find("Sphere");
-        
-            //target = GameObject.Find(itr.toString());
-            //offset = new Vector3(target.transform.position.x, target.transform.position.y+2, target.transform.position.z);
             cameraPosition = target.transform.position + offset;
             transform.position = cameraPosition;
         }
@@ -65,8 +60,6 @@ public class cameraFollows : MonoBehaviour
                     float t = (Time.time - startTime) / animationDuration;
                     pos = Vector3.Lerp(startPos, endPos, t);
                     this.transform.position = pos;
-                    //edge.SetPosition(1,pos);
-                    //sphere.transform.position = pos;
                     yield return null;
                 }
     }
@@ -78,6 +71,5 @@ public class cameraFollows : MonoBehaviour
         enabled = false;
         MoveCameraToTop move = GetComponent<MoveCameraToTop>();
         move.enabled = true;
-       // StartCoroutine(GoToTop());
     }
 }

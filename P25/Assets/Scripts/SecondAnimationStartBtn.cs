@@ -14,13 +14,11 @@ public class SecondAnimationStartBtn : MonoBehaviour
         btn.onClick.AddListener(ClickEvent);
     }
 
-//test
 
     void ClickEvent()
     {
         // Destroy the gameObject after clicking on it
         Pathway pathobj = GameObject.Find("Path Object").GetComponent<Pathway>();
-       //PathwayScriptableObject t = (PathwayScriptableObject)AssetDatabase.LoadAssetAtPath("Assets/Paths/BackupPathway.asset", typeof(PathwayScriptableObject));
         PathwayScriptableObject t = Resources.Load<PathwayScriptableObject>("BackupPathway");
         pathobj.path = t;
         pathobj.setPath();
@@ -41,11 +39,9 @@ public class SecondAnimationStartBtn : MonoBehaviour
         {
             cam.switchToTrackerCamera();
         }
-        //cam.switchToTrackerCamera();
         btn.SetActive(false);
         Step_AutoanimateToggle.SetActive(true);
-        //pathobj.TurnAutoOn();
-        //pathobj.startAnimation();
+
 
     }
 }

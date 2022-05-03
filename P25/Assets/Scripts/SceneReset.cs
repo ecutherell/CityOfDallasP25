@@ -13,7 +13,6 @@ public class SceneReset : MonoBehaviour
         btn.onClick.AddListener(ClickEvent);
     }
 
-    // Update is called once per frame
      void ClickEvent()
      {
           SceneManager.LoadScene("SampleScene");

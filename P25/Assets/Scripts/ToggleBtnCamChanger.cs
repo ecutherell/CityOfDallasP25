@@ -54,31 +54,8 @@ public class ToggleBtnCamChanger : MonoBehaviour
                 camEnabled = false;
             }     
         }
-
-
-        // // else if(animationStarted = true)
-        // // {
-
-        // // }
-            
-        //  else if(cam.trackerCamera.enabled == true)
-        //  {
-        //     cam.switchToTrackerCamera();
-        //     camEnabled = false;
-        //  }
-
-        //  else if(cams.mainCamera.enabled == true)
-        //  {
-        //      cam.switchToTrackerCamera();
-        //      camEnabled = false;
-        //  }
              
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
