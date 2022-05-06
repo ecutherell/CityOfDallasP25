@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Original Author for the cameraFollow script was Dr. Ranran Feng. 
+ *  this script was given to use by Dr. Feng and we were given permission to use it in this project
+ *
+ *  The script has been heavily modified to work with this specific project
+ *
+ */
+
 public class cameraFollows : MonoBehaviour
 {
     public GameObject target;

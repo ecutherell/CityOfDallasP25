@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+
+/*
+ *
+ *  Attach to the pathway gameobject
+ *  fill transmitter field with the transmitter gameobject
+ *  
+ */
+
+
+//main script for the project. relays signal from the starting tower to the trunking location
 public class Pathway : MonoBehaviour
 {
 
@@ -92,6 +102,7 @@ public class Pathway : MonoBehaviour
             yield break;
         }
 
+        //set up camera tracking 
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         GameObject camera = GameObject.Find("EdgeFollow");
         cameraFollows camScript = camera.GetComponent<cameraFollows>();
@@ -101,6 +112,7 @@ public class Pathway : MonoBehaviour
         MeshRenderer mesh = sphere.GetComponent<MeshRenderer>();
         mesh.enabled = false;
         
+        //loop through building edges until the signal has reached the trunking location
         while(!finished){
 
             if(autoAnimate | Input.GetMouseButton(0)) {
@@ -180,6 +192,8 @@ public class Pathway : MonoBehaviour
     //     //Run the Coroutine
     //     //StartCoroutine(AnimateLine());
     // }
+
+    //sets the path to be used by the pathway object. done at runtime
     public void setPath(){
         startNode = path.pathway[0];
         endNode = path.pathway[path.pathway.Length - 1];
@@ -192,6 +206,8 @@ public class Pathway : MonoBehaviour
         color1 = Color.cyan;
         color2 = Color.green;
     }
+
+    //control variable functions
 
     public void startAnimation()
     {

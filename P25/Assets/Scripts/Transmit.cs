@@ -6,11 +6,22 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEditor;
+
+/*
+ *  Attach to the transmitter object
+ *  fill the p field with the pathway object
+ *
+ *  This script handles the final propegation of the signal after it
+ *  hss reached the trunking location
+ */
+
+
 public class Transmit : MonoBehaviour
 {
 
     //Declare variables
     public Pathway p ;
+
     //This function simulates the signals transmition through all towers after reaching the trunking location
     //A modified BFS (breadth first search) is used to build signals between adjacent towers
     public void transmit(NodeScriptableObject root)
@@ -104,6 +115,7 @@ public class Transmit : MonoBehaviour
         }
         else{
             //runBackup route
+            //Currently doesn't do anything. modify this or create a pathbuilding algo to sidestep this
             return null;
         }
     }

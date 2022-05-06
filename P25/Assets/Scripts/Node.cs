@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Node script. attach to all the node gameobjects in the scene
+ *
+ */
+
 public class Node : MonoBehaviour
 {
     //gives unity a way to attach the script to a object
     public NodeScriptableObject node;
     
+    //Visual FX. 
     public ParticleSystem lightParticle;
     public ParticleSystem signalParticle;
     public Color currentColor;
@@ -26,7 +32,10 @@ public class Node : MonoBehaviour
         em.enabled = false;
     }
 
-    
+    //Handles coloring of the particle effects. makes the tower status visually clear
+    //red = nonfunctional
+    //blue = functional and ready to transmit
+    //green = transmiting trunked signal
     private void ColorManager()
     {
         //Tower Nonfunctional
